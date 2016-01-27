@@ -33,15 +33,6 @@ namespace :pod do
   end
 end
 
-namespace :simulator do
-
-  desc 'Clean all simulators'
-  task :clean do
-    system 'killall Simulator'
-    system 'xcrun simctl erase all'
-  end
-end
-
 namespace :update do
 
   desc 'Renew file references'
