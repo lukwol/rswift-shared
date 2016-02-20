@@ -2,8 +2,7 @@ require 'rake'
 require 'rswift'
 
 workspace = RSwift::WorkspaceProvider.workspace
-project_path = Dir.glob('*.xcodeproj').first
-project = Xcodeproj::Project.open(project_path)
+project = Xcodeproj::Project.open(Dir.glob('*.xcodeproj').first)
 
 desc 'Clean build objects'
 task :clean do
