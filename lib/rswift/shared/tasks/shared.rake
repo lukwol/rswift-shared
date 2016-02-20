@@ -6,7 +6,8 @@ project = Xcodeproj::Project.open(Dir.glob('*.xcodeproj').first)
 
 desc 'Clean build objects'
 task :clean do
-  FileUtils.rm_rf('~/Library/Developer/Xcode/DerivedData', verbose: true)
+  derived_data_directory = File.join(Dir.home, 'Library', 'Developer', 'Xcode', 'DerivedData')
+  FileUtils.rm_rf(derived_data_directory, verbose: true)
   FileUtils.rm_rf('build', verbose: true)
 
   caches_directory = File.join(Dir.home, 'Library', 'Caches')
