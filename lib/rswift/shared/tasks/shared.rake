@@ -6,17 +6,7 @@ project = Xcodeproj::Project.open(Dir.glob('*.xcodeproj').first)
 
 desc 'Clean build objects'
 task :clean do
-  derived_data_directory = File.join(Dir.home, 'Library', 'Developer', 'Xcode', 'DerivedData')
-  FileUtils.rm_rf(derived_data_directory, verbose: true)
   FileUtils.rm_rf('build', verbose: true)
-
-  caches_directory = File.join(Dir.home, 'Library', 'Caches')
-  appcode_directory = Dir.glob("#{caches_directory}/AppCode*/").first
-  if appcode_directory
-    appcode_derived_data_directory = File.join(appcode_directory, 'DerivedData')
-    FileUtils.rm_rf(appcode_derived_data_directory, verbose: true)
-  end
-
   project.build_configurations.each do |build_configuration|
     system "xcodebuild clean -workspace #{workspace} -scheme #{project.app_scheme_name} -configuration #{build_configuration.name} | xcpretty"
   end
