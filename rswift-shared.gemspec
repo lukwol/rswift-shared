@@ -31,4 +31,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'rswift'
   spec.add_runtime_dependency 'rake'
   spec.add_runtime_dependency 'xcpretty'
+  spec.add_runtime_dependency 'colorize'
 end

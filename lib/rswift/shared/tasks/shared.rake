@@ -1,5 +1,6 @@
 require 'rake'
 require 'rswift'
+require 'colorize'
 
 workspace = RSwift::WorkspaceProvider.workspace
 project = Xcodeproj::Project.open(Dir.glob('*.xcodeproj').first)
@@ -25,7 +26,7 @@ end
 
 namespace :update do
 
-  desc 'Renew file references'
+  desc 'Update file references'
   task :references do
     files_references_manager = RSwift::FilesReferencesManager.new
     project.targets.each do |target|
@@ -35,5 +36,6 @@ namespace :update do
     end
 
     project.save
+    puts 'Updated file references'.green
   end
 end
