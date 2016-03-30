@@ -30,7 +30,7 @@ namespace :update do
   task :references do
     files_references_manager = RSwift::FilesReferencesManager.new
     project.targets.each do |target|
-      group_name = RSwift::Constants::TARGET_PROPERTIES[target.product_type_uti][:group_name]
+      group_name = RSwift::Configuration.new.group_name(target)
       group = project.main_group[group_name]
       files_references_manager.update_target_references(group, target)
     end
