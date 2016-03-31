@@ -36,6 +36,6 @@ namespace :update do
     end
 
     project.save
-    puts 'Updated file references'.green
+    puts 'Updated files references'.green
   end
 end
