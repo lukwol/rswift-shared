@@ -1,12 +1,15 @@
 # RSwift::Shared
 
 RSwift::Shared provides universal rake commands for iOS, OSX, tvOS and watchOS projects.
+
 RSwift::Shared is used by more platform specific gems: rswift-ios, rswift-osx, rswift-tvos.
+
 RSwift::Shared uses rswift gem.
 
 ## Installation
 
 This gem serves as shared dependency for for rswift-ios, rswift-osx, rswift-tvos
+
 It's not recommended to install this gem standalone
 
 ## Development
